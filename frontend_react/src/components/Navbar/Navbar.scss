@@ -18,9 +18,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
     img {
         width: 90px;
         height: 20px;
+
         @media screen and (min-width: 2000px) {
             width: 180px;
             height: 40px;
@@ -35,9 +37,11 @@
     align-items: center;
     
     list-style: none;
+
     li {
         margin: 0 1rem;
         cursor: pointer;
+        
         flex-direction: column;
 
         div {
@@ -48,6 +52,7 @@
 
             margin-bottom: 5px;
         }
+        
         a {
             color: var(--gray-color);
             text-decoration: none;
