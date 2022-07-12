@@ -25,13 +25,24 @@ client.fetch(query)
 
 
 const handleWorkFilter = (item) => {
+    setActiveFilter(item);
+    setAnimateCard([{ y: 100, opacity: 0 }]);
 
+      setTimeout(() => {
+        setAnimateCard([{ y: 0, opacity: 1 }]);
+
+        if (item === 'All') {
+          setFilterWork(works);
+        } else {
+          setFilterWork(works.filter(work => work.tags.includes(item)));
+      }
+    }, 500);
   }
   return (
     <>
       <h2 className="head-text">My Creative <span>Portfolio</span> <br />Section</h2>
 
-      <div class="app__work-filter">
+      <div className="app__work-filter">
         {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
           <div
           key={index}
@@ -85,7 +96,7 @@ const handleWorkFilter = (item) => {
               <h4 className="bold-text">{work.title}</h4>
               <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
 
-              <div class="app__work-tag app__flex">
+              <div className="app__work-tag app__flex">
                 <p className="p-text">{work.tags[0]}</p>
               </div>
             </div>
